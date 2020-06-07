@@ -37,4 +37,4 @@
 
 
 #### UML
-![UML Diagram](UML1.png)
+![UML Diagram](UML1.jpg)
