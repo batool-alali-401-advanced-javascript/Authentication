@@ -7,8 +7,8 @@
 
 ### Links and Resources
 
-- [submission PR]()
-- [ci/cd]()) 
+- [submission PR](https://github.com/batool-alali-401-advanced-javascript/Authentication/pull/1)
+- [ci/cd](https://github.com/batool-alali-401-advanced-javascript/Authentication/runs/747741475)) 
 
 
 ### Setup
