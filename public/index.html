@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My First Ouath App</title>
+  </head>
+  <body>
+    <h1>Oauth</h1>
+    <main>
+       <p>Click <a id="oauth" href="#"> Here</a>  to login</p> 
+    </main>
+    <script>
+        let URL = 'https://github.com/login/oauth/authorize';
+    
+        let options = {
+          client_id: '2778aab3dfaa4d9ff556',
+          redirect_uri: 'http://localhost:3000/oauth',
+          scope: 'read:user',
+          state: 'asldfjdfs'
+        }
+    
+        let QueryString = Object.keys(options).map((key) => {
+          return `${key}=` + encodeURIComponent(options[key]);
+        }).join('&');
+    
+    
+        let authURL = `${URL}?${QueryString}`;
+    
+        
+        let link = document.getElementById('oauth');
+        link.setAttribute('href', authURL);
+      </script>
+  </body>
+  
+</html>
