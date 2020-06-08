@@ -40,4 +40,4 @@
 
 
 #### UML
-![UML Diagram](UML1.jpg)
+![UML Diagram](UML2.jpg)
