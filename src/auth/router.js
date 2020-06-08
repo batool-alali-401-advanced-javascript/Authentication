@@ -5,6 +5,8 @@ const router = express.Router();
 
 const Users = require('./models/users-model.js');
 const basicAuth = require('./middleware/basic.js');
+const oauth = require('./middleware/oauth.js');
+
 
 router.post('/signup', (req, res) => {
   let newUser = new Users(req.body);
@@ -26,5 +28,9 @@ router.get('/users',(req, res) => {
       res.status(200).json(users);
     });
 });
-  
+
+router.get('/oauth', oauth, (req, res) => {
+  res.status(200).send(req.token);
+});
+
 module.exports = router;

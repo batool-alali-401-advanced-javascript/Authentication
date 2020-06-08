@@ -1,5 +1,5 @@
 
-# LAB - Class 11
+# LAB - Class 12
 
 ## Project: Authentication
 
@@ -7,7 +7,7 @@
 
 ### Links and Resources
 
-- [submission PR](https://github.com/batool-alali-401-advanced-javascript/Authentication/pull/1)
+- [submission PR](https://github.com/batool-alali-401-advanced-javascript/Authentication/pull/4)
 - [ci/cd](https://github.com/batool-alali-401-advanced-javascript/Authentication/runs/747741475)) 
 
 
@@ -16,6 +16,10 @@
     - PORT
     - MONGODB_URI
     - SECRET
+    - CLIENT_ID
+    - CLIENT_SECRET
+    - API_SERVER
+    - TOKEN_SERVER
 
 #### How to initialize/run your application 
 - `$ npm init -y`
@@ -24,8 +28,7 @@
 #### Libraries:
 - 'dotenv'
 - 'express'
-- 'supertest' for testing the server.
-- 'morgan'
+- 'supertest' 
 - 'mongoose'
 - "base-64"
 - "bcryptjs"
