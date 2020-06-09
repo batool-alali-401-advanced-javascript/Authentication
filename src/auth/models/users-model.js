@@ -54,7 +54,7 @@ Users.methods.tokenGenerator = function () {
   // algorithm: object containing either the secret for HMAC algorithms or the PEM encoded private key for RSA and ECDSA
   // RS256	RSASSA-PKCS1-v1_5 using SHA-256 hash algorithm
   // resoure https://www.npmjs.com/package/jsonwebtoken
-  let token = jwt.sign({ username: this.username,  expiresIn:  900000, algorithm:  'RS256' }, SECRET);  return token;
+  let token = jwt.sign({ username: this.username, id:this._id ,expiresIn:  900000, algorithm:  'RS256' }, SECRET);  return token;
 };
 
 Users.statics.authenticateToken = async function(token){
