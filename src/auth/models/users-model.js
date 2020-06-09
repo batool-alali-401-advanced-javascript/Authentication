@@ -48,15 +48,33 @@ Users.methods.passwordComparator = function (pass) {
 };
 
 
-// to use this._id
+// to use this.username
 Users.methods.tokenGenerator = function () {
-  let token = jwt.sign({ id: this._id }, SECRET);
-  return token;
+  // expiresIn expiresIn: expressed in seconds or a string describing a time span / 15 min = 900000 ms
+  // algorithm: object containing either the secret for HMAC algorithms or the PEM encoded private key for RSA and ECDSA
+  // RS256	RSASSA-PKCS1-v1_5 using SHA-256 hash algorithm
+  // resoure https://www.npmjs.com/package/jsonwebtoken
+  let token = jwt.sign({ username: this.username,  expiresIn:  900000, algorithm:  'RS256' }, SECRET);  return token;
+};
+
+Users.statics.authenticateToken = async function(token){
+  try {
+    let tokenObject = await jwt.verify(token, SECRET);
+
+    if (tokenObject.username) {
+      return Promise.resolve(tokenObject);
+    } else {
+      return Promise.reject('User is not found!');
+    }
+  } catch (e) {
+    return Promise.reject(e.message);
+  }
 };
 
 Users.statics.list =  async function(){
   let results = await this.find({});
   return results;
 };
+
 
 module.exports = mongoose.model('users', Users);

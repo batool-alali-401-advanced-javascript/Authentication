@@ -1,5 +1,5 @@
 
-# LAB - Class 12
+# LAB - Class 13
 
 ## Project: Authentication
 
@@ -7,7 +7,7 @@
 
 ### Links and Resources
 
-- [submission PR](https://github.com/batool-alali-401-advanced-javascript/Authentication/pull/7)
+- [submission PR](https://github.com/batool-alali-401-advanced-javascript/Authentication/pull/8)
 - [ci/cd](https://github.com/batool-alali-401-advanced-javascript/Authentication/runs/747741475)) 
 
 
@@ -40,4 +40,4 @@
 
 
 #### UML
-![UML Diagram](UML2.jpg)
+![UML Diagram](UML3.jpg)
