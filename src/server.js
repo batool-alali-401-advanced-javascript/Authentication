@@ -9,6 +9,7 @@ const app = express();
 const error404 = require('./middleware/404.js');
 const error500 = require('./middleware/500.js');
 const Route = require('./auth/router.js');  
+const extraRoute = require('./auth/extra-routes.js');
 
 
 
@@ -20,7 +21,7 @@ app.use(express.static('./public'));
 
 
 app.use(Route);  
-
+app.use(extraRoute);
 
 
 app.use(error404);
