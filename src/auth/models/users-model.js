@@ -61,7 +61,7 @@ Users.statics.authenticateToken = async function(token){
   try {
     let tokenObject = await jwt.verify(token, SECRET);
 
-    if (tokenObject.username) {
+    if (tokenObject.id) {
       return Promise.resolve(tokenObject);
     } else {
       return Promise.reject('User is not found!');
