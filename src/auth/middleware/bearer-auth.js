@@ -8,9 +8,12 @@ module.exports = (req, res, next) => {
     const [auth, token] = req.headers.authorization.split(' ');
     if (auth === 'Bearer') {
       console.log('TOKEN', token);
+      console.log('req.user',req.user);
       users
         .authenticateToken(token)
         .then((validUser) => {
+          console.log('validuser',validUser);
+          console.log('req.user2',req.user);
           req.user = validUser;
           next();
         })

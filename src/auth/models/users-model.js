@@ -11,7 +11,13 @@ const SECRET = process.env.SECRET || 'batool123';
 const Users = new mongoose.Schema({
   username: { type: String, required: true },
   password: { type: String, required: true },
-});
+  role: {type: String, require:true, enum: ['user','writer','editor','administrator']},
+}); // I think I should use tolowwercase in the middleware
+
+const  user = ['read'];
+const writer = ['read', 'create'];
+const editor = ['read, create', 'update' ];
+const administrator = ['read, create', 'update', 'delete'];
 
 
 Users.pre('save', async function () {
@@ -47,21 +53,46 @@ Users.methods.passwordComparator = function (pass) {
     });
 };
 
-
+// Users.methods.can = function (role){
+//   let capabilities;
+//   if (role === 'user'){
+//     capabilities = user;
+//   }else if (role === 'writer')
+//   {
+//     capabilities = writer;
+//   }else if( role === 'editor'){
+//     capabilities= editor;
+//   }else if (role === 'administrator'){
+//     capabilities=administrator;
+//   }
+//   return capabilities;
+// };
 // to use this.username
 Users.methods.tokenGenerator = function () {
+  let capabilities;
   // expiresIn expiresIn: expressed in seconds or a string describing a time span / 15 min = 900000 ms
   // algorithm: object containing either the secret for HMAC algorithms or the PEM encoded private key for RSA and ECDSA
   // RS256	RSASSA-PKCS1-v1_5 using SHA-256 hash algorithm
   // resoure https://www.npmjs.com/package/jsonwebtoken
-  let token = jwt.sign({ username: this.username, id:this._id ,expiresIn:  900000, algorithm:  'RS256' }, SECRET);  return token;
+  if (this.role === 'user'){
+    capabilities = user;
+  }else if (this.role === 'writer')
+  {
+    capabilities = writer;
+  }else if( this.role === 'editor'){
+    capabilities= editor;
+  }else if (this.role === 'administrator'){
+    capabilities=administrator;
+  }
+  let token = 
+  jwt.sign({  role: this.role, id:this._id ,capabilities: capabilities ,expiresIn:  900000, algorithm:  'RS256' }, SECRET);  return token;
 };
 
 Users.statics.authenticateToken = async function(token){
   try {
     let tokenObject = await jwt.verify(token, SECRET);
 
-    if (tokenObject.username) {
+    if (tokenObject.id) {
       return Promise.resolve(tokenObject);
     } else {
       return Promise.reject('User is not found!');
