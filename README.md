@@ -7,8 +7,8 @@
 
 ### Links and Resources
 
-- [submission PR](https://github.com/batool-alali-401-advanced-javascript/Authentication/pull/10)
-- [ci/cd](https://github.com/batool-alali-401-advanced-javascript/Authentication/runs/747741475)) 
+- [submission PR](https://github.com/batool-alali-401-advanced-javascript/Authentication/pull/12)
+- [ci/cd](https://github.com/batool-alali-401-advanced-javascript/Authentication/runs/747741475)
 
 
 ### Setup
@@ -40,4 +40,4 @@
 
 
 #### UML
-![UML Diagram](UML3.jpg)
+![UML Diagram](UML4.jpg)

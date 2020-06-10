@@ -4,9 +4,8 @@ const express = require('express');
 const router = express.Router();
 const permissions = require('./middleware/authorize.js');
 const bearerAuth= require('./middleware/bearer-auth.js');
-const bearerMiddleware = require('./middleware/bearer-auth.js');
 
-router.get('/secret', bearerMiddleware, (req,res) => { 
+router.get('/secret', bearerAuth, (req,res) => { 
   res.json(req.user);
 });
 
