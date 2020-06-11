@@ -7,9 +7,11 @@
 
 ### Links and Resources
 
-- [submission PR](https://github.com/batool-alali-401-advanced-javascript/Authentication/pull/13)
+- [submission PR](https://github.com/batool-alali-401-advanced-javascript/Authentication/pull/15)
 - [ci/cd](https://github.com/batool-alali-401-advanced-javascript/Authentication/runs/747741475)
-
+- [Swagger Doc](https://app.swaggerhub.com/apis/batoolalali/auth/0.1)
+- [Deployment](https://authentication2020.herokuapp.com/)
+- [jsdoc](https://authentication2020.herokuapp.com/docs/)
 
 ### Setup
 - .env => 
