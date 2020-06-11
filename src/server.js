@@ -18,7 +18,7 @@ app.use(cors());
 app.use(morgan('dev'));
 
 app.use(express.static('./public'));
-app.use('/docs', express.static('./doc'));
+app.use('/docs', express.static('./docs'));
 
 
 
