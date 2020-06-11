@@ -7,6 +7,10 @@ const Users = require('./models/users-model.js');
 const basicAuth = require('./middleware/basic.js');
 const oauth = require('./middleware/oauth.js');
 
+/**
+ * router
+ * @module router
+ */
 
 router.post('/signup', (req, res) => {
   let newUser = new Users(req.body);

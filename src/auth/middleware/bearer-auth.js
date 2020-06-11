@@ -1,5 +1,11 @@
 const users = require('../models/users-model.js');
 
+
+/**
+ * bearer-auth middleware
+ * @module bearer-auth
+ */
+
 module.exports = (req, res, next) => {
  
   if (!req.headers.authorization) {

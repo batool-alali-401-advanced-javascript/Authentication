@@ -1,5 +1,10 @@
 
 
+/**
+ * ACL middleware
+ * @module authorize
+ */
+
 module.exports = (capability) => {
   return (req, res, next) => {
     
