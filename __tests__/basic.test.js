@@ -11,8 +11,17 @@ describe('Authentication Model',()=>{
       });
   });
 
+  it('Cannot /signin  the user didnt  sign up', ()=>{
+    let test = {'username': 'unknown', 'password': '123bb'};
+    return mockRequest.post('/signin')
+      .send(test)
+      .then(data=>{
+        expect(data.status).toEqual(500);
+      });
+  });
+
   it('GET to /users to get all users', ()=>{
-    let test = {'username': 'qusai', 'password': '123'};
+    let test = {'username': 'batoool', 'password': '123bbb'};
     return mockRequest.post('/signup')
       .auth(test)
       .then(data=>{
